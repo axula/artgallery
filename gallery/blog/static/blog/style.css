@@ -1,0 +1,29 @@
+/* Pagination */
+
+#previous-list {
+    float: left;
+}
+
+#next-list {
+    float: right;
+}
+
+/* Tags */
+
+.tag-link:link, .tag-link:visited {
+    background-color: green;
+    text-decoration: none;
+    color: white;
+    padding: 5px 10px;
+    line-height: 27px;
+    border-radius: 10px;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.tag-link:hover, .tag-link:active {
+    color: white;
+    background-color: #060;
+    text-decoration: none;
+    white-space: nowrap;
+}

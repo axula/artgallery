@@ -1,0 +1,44 @@
+{% for post in posts %}
+    <div class="media">
+        <h4 class="media-heading">
+            <a href="{% url 'blog:blogpost' post.slug %}">
+                {{ post.title }}</a>
+        </h4>
+        <p>{{ post.date }}{% if post.category %}, posted in <b><a href="{% url 'blog:category' post.category.slug %}">{{ post.category }}</b></a>{% endif %}
+        {% if post.image %}
+            <div class="media-left">
+                <a href="{% url 'blog:blogpost' post.slug %}">
+                    <img class="media-object" src="{{ post.image.url }}" width=200>
+                </a>
+            </div>
+        {% endif %}
+        <div class="media-body">
+            <p>{{ post.body|safe|truncatewords:100 }}
+                <a href="{% url 'blog:blogpost' post.slug %}">Continue</a></p>
+        </div>
+        <p>{% for tag in post.get_tags %}
+            <a class="tag-link" href="{% url 'blog:tag' tag.slug %}">
+                {{ tag.name }}</a>
+            {% endfor %}</p>
+    </div>
+{% endfor %}
+
+<div class="page-nav">
+    {% if gallery_posts.has_previous or gallery_posts.has_next %}
+        <span id="previous-list">
+            {% if posts.has_previous %}
+                <a href="?page={{ posts.previous_page_number }}">previous</a>
+            {% else %}
+                previous
+            {% endif %}
+        </span>
+
+        <span id="next-list">
+            {% if posts.has_next %}
+                <a href="?page={{ posts.next_page_number }}">next</a>
+            {% else %}
+                next
+            {% endif %}
+        </span>
+    {% endif %}
+</div>

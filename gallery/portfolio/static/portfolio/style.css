@@ -1,0 +1,170 @@
+/* General */
+
+.hidden {
+    display: none;
+}
+
+/* Gallery Overview */
+
+#portfolio-header {
+    border-bottom: 3px solid black;
+}
+
+#filter-categories {
+    text-align: right;
+    font-size: 16px;
+}
+
+#filter-categories a {
+    margin-left: 20px;
+}
+
+#gallery-posts {
+    padding: 0;
+}
+
+.post-link {
+    width: 100%;
+    float: left !important;
+    list-style-type: none;
+}
+
+@media (min-width: 450px) {
+    .post-link {
+        width: 50%;
+    }
+}
+
+@media (min-width: 768px) {
+    .post-link {
+        width: 33%;
+    }
+}
+
+@media (min-width: 992px) {
+    .post-link {
+        width: 20%;
+    }
+}
+
+.thumbnail {
+    margin: 0 10px 10px 0 !important;
+}
+
+.no-thumb {
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+/* Pagination */
+
+.page-nav {
+    clear: both;
+}
+
+#previous-list {
+    float: left;
+}
+
+#next-list {
+    float: right;
+}
+
+/* Gallery Post */
+
+#post-header {
+    border-bottom: #8b1a29 solid 3px;
+    margin: 20px 0;
+    padding-bottom: 1px;
+}
+
+#post-title {
+    font-size: 16px !important;
+    display: block;
+    margin: 8px 0 0 !important;
+    border-bottom: 0 !important;
+}
+
+#post-nav {
+    float: right;
+    padding: 5px 0 10px;
+    display: block;
+    font-size: 16px;
+    list-style-type: none;
+}
+
+#post-nav li {
+    float: left;
+}
+
+#post-nav a {
+    padding: 0 10px;
+    color: white;
+    text-transform: uppercase;
+}
+
+@media (min-width: 375px) {
+    #post-title, .post-nav {
+        display: inline-block;
+    }
+    
+    #post-header {
+        padding: 0;
+    }
+}
+
+@media (min-width: 550px) {
+    #post-title, #post-nav {
+        font-size: 18px !important;
+        padding-bottom: 3px;
+    }
+}
+
+#gallery-images {
+    height: 800px;
+}
+
+#gallery-images img {
+    max-height: 100%;
+}
+
+#post-date {
+    font-size: 14px;
+}
+
+.details-header {
+    margin-top: 20px;
+    color: #099;
+}
+
+.details-item {
+    font-weight: bold;
+}
+
+.details-item a {
+    color: black;
+}
+
+#post-description {
+    margin-top: 20px;
+}
+
+/* Tags */
+
+.tag-link:link, .tag-link:visited {
+    background-color: #066;
+    text-decoration: none;
+    color: white;
+    padding: 5px 10px;
+    line-height: 27px;
+    border-radius: 10px;
+    font-size: 11px !important;
+    white-space: nowrap;
+}
+
+.tag-link:hover, .tag-link:active {
+    color: white !important;
+    background-color: #099;
+    text-decoration: none;
+    white-space: nowrap;
+}

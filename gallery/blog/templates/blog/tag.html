@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}{{ tag.name }}{% endblock %}
+
+{% block content %}
+<div class="row">
+<div class="col-md-9">
+    <h3>{{ tag.name }}</h3>
+    {% include "blog/includes/postlist.html" %}
+</div>
+<div class="col-md-3">
+    <h4>Tags</h4>
+    <div class="list-group">
+    {% for t in tags %}
+        <a href="{% url 'blog:tag' t.slug %}" class="list-group-item">
+            <span class="badge">{{ t.post_count }}</span>
+            {{ t.name }}
+        </a>
+    {% endfor %}
+    </div>
+</div><!-- .col-md-3 --></div><!-- .col-md-9 .row -->
+{% endblock %}

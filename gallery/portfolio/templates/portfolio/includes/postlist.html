@@ -1,0 +1,29 @@
+<ul id="gallery-posts">
+    {% for post in gallery_posts %}
+        <li class="post-link">
+            <a class="thumbnail" href="{% url 'portfolio:gallerypost' category_slug=post.category.slug post_slug=post.slug %}">
+                <img class="img-responsive" src="{{ post.thumbnail.url }}">
+            </a>
+        </li>
+    {% endfor %}
+</ul>
+
+<div id="portfolio-nav" class="page-nav">
+    {% if gallery_posts.has_previous or gallery_posts.has_next %}
+        <span id="previous-list">
+            {% if gallery_posts.has_previous %}
+                <a href="?page={{ gallery_posts.previous_page_number }}">previous</a>
+            {% else %}
+                previous
+            {% endif %}
+        </span>
+
+        <span id="next-list">
+            {% if gallery_posts.has_next %}
+                <a href="?page={{ gallery_posts.next_page_number }}">next</a>
+            {% else %}
+                next
+            {% endif %}
+        </span>
+    {% endif %}
+</div>

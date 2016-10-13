@@ -1,0 +1,18 @@
+/* HEADER */
+
+#header {
+    background-color: black;
+}
+
+#site-name, #site-subtitle {
+    color: white;
+}
+
+/* FOOTER */
+
+#footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding-top: 20px;
+}

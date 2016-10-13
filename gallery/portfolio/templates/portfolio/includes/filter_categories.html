@@ -1,0 +1,6 @@
+<h4 id="filter-categories">
+    <a href="{% url 'portfolio:index' %}">All</a>
+    {% for category in categories %}
+        <a href="{% url 'portfolio:category' category.slug %}">{{ category.name }}</a>
+    {% endfor %}
+</h4>

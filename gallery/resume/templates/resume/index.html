@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% block title %}Resume{% endblock %}
+
+{% block content %}
+<div id="resume">
+<div class="row">
+    <div class="col-sm-7 col-md-8 col-lg-9">
+        <div id="resume-branding">
+            <img src="{{ resume.image.url }}" width=200>
+        </div>
+        <div id="about">
+            <h3>About</h3>
+            {{ resume.about|safe }}
+        </div>
+    </div><!-- .col-sm-7 -->
+    <div class="col-sm-5 col-md-4 col-lg-3">
+        <aside id="contact-me">
+            <dl>
+                <dt><span class="contact-thumb genericon genericon-mail" style="margin-left: 0;"></span></dt>
+                <dd><span class="contact-label">Email Me</span><br>
+                    <a href="mailto:{{ resume.email }}">{{ resume.email }}</a>
+                </dd>
+                <dt><span class="contact-thumb genericon genericon-location" style="margin-left: 0;"></span></dt>
+                <dd><span class="contact-label">Located</span><br>
+                    <strong>{{ resume.location }}</strong></dd>
+            </dl>
+        </aside>
+    </div><!-- . col-sm-5 -->
+</div><!-- .row -->
+<div class="row">
+    <div class="col-md-5 col-lg-4">
+        <section id="specializations">
+            <h3>Specializations</h3>
+            {{ resume.specializations|safe }}
+        </section>
+        <section id="skills">
+            <h3>Skills</h3>
+            {{ resume.skills|safe }}
+        </section>
+        <section id="education">
+            <h3>Education</h3>
+            {% for e in education %}
+                <h4>{{ e.degree }}
+                    <span class="pull-right">
+                        {{ e.date.year }}</span></h4>
+                <p>{{ e.school }}<br>
+                   {{ e.location }}</p>
+            {% endfor %}
+        </section>
+    </div><!-- . col-md-5 -->
+    <div class="col-md-7 col-lg-8">
+        <section id="experience">
+            <h3>Experience</h3>
+            {% for e in experience %}
+                <h4>{{ e.title }}
+                    <span class="pull-right" style="font-weight: normal;">{{ e.start_date.year }}
+                    {% if e.end_date and e.end_date.year != e.start_date.year %}
+                        - {{ e.end_date.year }}
+                    {% else %}
+                        - Present
+                    {% endif %}
+                    </span></h4>
+                <h5>{{ e.company }}</h5>
+                {{ e.description|safe }}
+            {% endfor %}
+        </section>
+    </div><!-- . col-md-7 -->
+</div><!-- .row -->
+</div><!-- #resume -->
+{% endblock %}

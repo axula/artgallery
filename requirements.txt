@@ -1,0 +1,7 @@
+Django==1.9.6
+Pillow==3.2.0
+argparse==1.2.1
+distribute==0.7.3
+django-admin-sortable2==0.6.3
+django-tinymce==2.3.0
+wsgiref==0.1.2

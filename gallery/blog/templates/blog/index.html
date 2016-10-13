@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Blog{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8">
+        <h3 id="blog-header">Blog</h3>
+        <div id="blog-posts">
+            {% include "blog/includes/postlist.html" %}
+        </div>
+    </div>
+    <div class="col-md-4">
+        <h4>Categories</h4>
+        
+    </div><!-- .col-md-4 -->
+</div><!-- .row -->
+{% endblock %}

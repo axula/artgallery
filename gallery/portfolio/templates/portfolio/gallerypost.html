@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <header id="post-header">
+            <h3 id="post-title">{{ post.title }}</h3>
+            <ul id="post-nav">
+                <li><a href="{% url 'portfolio:gallerypost' category_slug=previous.category.slug post_slug=previous.slug %}">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></a></li>
+                <li><a href="{% url 'portfolio:index' %}">
+                    <span class="glyphicon glyphicon-th" aria-hidden="true"></span></a></li>
+                <li><a href="{% url 'portfolio:gallerypost' category_slug=next.category.slug post_slug=next.slug %}">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a></li>
+            </ul>
+        </header>
+    </div><!-- .col-md-12 -->
+    <div class="col-md-8">
+        <section id="gallery-images">
+            {% for image in images %}
+                <a class="fancybox{% if not forloop.first %} hidden{% endif %}" href="{{ image.image.url }}" rel="gallery" title="{{ image.description }}">
+                    <img class="img-responsive" src="{{ image.image.url }}" alt="{{ image.alt_text }}">
+                </a>
+            {% endfor %}
+            {% if images|length > 1 %}
+                <p>{{ images|length }} images, click thumbnail for gallery</p>
+            {% endif %}
+        </section>
+    </div><!-- .col-md-8 -->
+    <div class="col-md-4">
+        <aside id="post-details">
+            {% if tags %}
+                <p>{% for tag in tags %}
+                    <a class="tag-link" href="{% url 'portfolio:tag' tag.slug %}">
+                        {{ tag.name }}</a>
+                {% endfor %}</p>
+            {% endif %}
+            <p id="post-date">{{ post.date }}</p>
+            <div>
+                <dt class="details-header">Category</dt>
+                <dd class="details-item">{{ post.category }}</dd>
+                {% if post.credit %}
+                    <dt class="details-header">Credit</dt>
+                    <dd class="details-item">{{ post.credit }}</dd>
+                {% endif %}
+                {% if post.medium %}
+                    <dt class="details-header">Medium</dt>
+                    <dd class="details-item">{{ post.medium }}</dd>
+                {% endif %}
+                {% if post.client %}
+                    <dt class="details-header">Client</dt>
+                    {% if post.client_url %}
+                        <dd class="details-item"><a href="{{ post.client_url }}">{{ post.client }}</a></dd>
+                    {% else %}
+                        <dd class="details-item">{{ post.client }}</dd>
+                    {% endif %}
+                {% endif %}
+                {% if post.project %}
+                    <dt class="details-header">Project</dt>
+                    {% if post.project_url %}
+                        <dd class="details-item"><a href="{{ post.project_url }}">{{ post.project }}</a></dd>
+                    {% else %}
+                        <dd class="details-item">{{ post.project }}</dd>
+                    {% endif %}
+                {% endif %}
+            </div>
+            <p id="post-description">{{ post.description }}</p>
+        </aside>
+    </div><!-- .col-md-4 -->
+</div><!-- .row -->
+{% endblock %}

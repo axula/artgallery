@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}Category{% endblock %}
+
+{% block content %}
+<div class="row"><div class="col-md-12">
+    <h3 id="portfolio-header">Category: {{ category.name }}</h3>
+    {% include "portfolio/includes/filter_categories.html" %}
+    {% include "portfolio/includes/postlist.html" %}
+</div></div><!-- .col-md-12 .row -->
+{% endblock %}
